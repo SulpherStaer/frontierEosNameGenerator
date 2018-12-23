@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
 
 import { factionData } from '../fakeFactionsList'
 
@@ -11,9 +12,16 @@ export class InputSelectorComponent implements OnInit {
 
   factionData = factionData;
   
+  inputForm = new FormGroup({
+    quantity: new FormControl(''),
+    faction: new FormControl('')
+  });
+  
   constructor() { }
 
   ngOnInit() {
   }
-
+  public onSubmit(): void {
+    console.log(this.inputForm.value);
+  }
 }

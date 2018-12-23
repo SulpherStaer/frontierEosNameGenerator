@@ -1,6 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
-import { FormsModule } from '@angular/forms'; 
+import { FormsModule, ReactiveFormsModule } from '@angular/forms'; 
 
 import { AppComponent } from './app.component';
 import { NameCardComponent } from './name-card/name-card.component';
@@ -14,7 +14,8 @@ import { InputSelectorComponent } from './input-selector/input-selector.componen
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
