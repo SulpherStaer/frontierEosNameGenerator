@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
+import { RandomNameSelectorService } from '../random-name-selector.service'
 
 import { factionData } from '../fakeFactionsList'
 

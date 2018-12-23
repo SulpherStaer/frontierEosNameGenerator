@@ -6,6 +6,5 @@ import { InputSelectorComponent } from './input-selector/input-selector.componen
   providedIn: 'root'
 })
 export class RandomNameSelectorService {
-  generatedData = inputForm;
   constructor() { }
 }
