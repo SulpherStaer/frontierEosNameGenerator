@@ -1,0 +1,5 @@
+<input type="number" name="quantity" value="1" min="1" max="50" autocomplete="off">
+<select name="faction" autocomplete="off">
+  <option *ngFor="let generatedFactions of factionData" value="{{generatedFactions.factionName}}">{{generatedFactions.factionName}}</option>
+</select>
+<input type="submit" value="Generate">
