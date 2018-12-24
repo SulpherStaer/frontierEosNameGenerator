@@ -24,6 +24,6 @@ export class InputSelectorComponent implements OnInit {
   }
   
   public onSubmit(): void {
-    this.randomNameSelectorService.getInputSelectorFormData(this.inputForm.value);
+    this.randomNameSelectorService.generateButtonPressed(this.inputForm.value);
   }
 }

@@ -15,7 +15,7 @@ export class RandomNameSelectorService {
 
   constructor() { }
   
-  public getInputSelectorFormData(dataFromInputSelectorForm): void {
+  public generateButtonPressed(dataFromInputSelectorForm): void {
     this.nameData = [];
     console.log("We should generate " + dataFromInputSelectorForm.quantity + " " + dataFromInputSelectorForm.faction + " name.");
         
