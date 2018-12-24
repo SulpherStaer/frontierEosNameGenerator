@@ -1,5 +1,4 @@
 import { Component, OnInit } from '@angular/core';
-import { nameData } from '../fakeNameData'
 import { RandomNameSelectorService } from '../random-name-selector.service'
 
 @Component({
@@ -9,11 +8,14 @@ import { RandomNameSelectorService } from '../random-name-selector.service'
 })
 export class NameCardComponent implements OnInit {
 
-  nameData = nameData;
+  nameData$: any;
   
-  constructor() { }
+  constructor(private randomNameService: RandomNameSelectorService) { }
 
   ngOnInit() {
+    this.randomNameService.getNameDataFromService().subscribe(res => {
+      this.nameData$ = res;
+    });
   }
 
 }
