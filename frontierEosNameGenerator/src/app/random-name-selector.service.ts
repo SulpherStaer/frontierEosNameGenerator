@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
-import { InputSelectorComponent } from './input-selector/input-selector.component'
-import { NameCardComponent } from './name-card/name-card.component'
+import { Observable, BehaviorSubject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root'
@@ -9,23 +8,24 @@ export class RandomNameSelectorService {
   
   factionImageTopPath:string;
   factionImageBottomPath:string;
-  nameData = [];
+  nameData: BehaviorSubject<any> = new BehaviorSubject(null);
+  nameArray = [];
   pushToArray:any;
   loopCounter:number;
 
   constructor() { }
   
   public generateButtonPressed(dataFromInputSelectorForm): void {
-    this.nameData = [];
     console.log("We should generate " + dataFromInputSelectorForm.quantity + " " + dataFromInputSelectorForm.faction + " name.");
         
     // our exportToArray variables will become different in the future - handle this properly
     // I expect it will look like (dataFromInputSelectorForm, randomName) and we won't have name1, 2, and 3 as seperate.
     this.exportToArray(dataFromInputSelectorForm);
-    console.log(this.nameData);
+    console.log(this.nameArray);
   }
   
   private exportToArray(formInput): void {
+    this.nameArray = [];
     this.factionImageTopPath = this.getFactionImg(formInput, 'Top');
     this.factionImageBottomPath = this.getFactionImg(formInput, 'Bottom');
     for (this.loopCounter = 0; this.loopCounter < formInput.quantity; this.loopCounter++ ) {
@@ -38,11 +38,18 @@ export class RandomNameSelectorService {
         name3:'Karter',
         fullName:'Sam Porter Karter',
       };
-      this.nameData.push(this.pushToArray);
+      this.nameArray.push(this.pushToArray);
     };
+    this.updateNameData();
   }
   
+  public updateNameData(): void {
+    this.nameData.next(this.nameArray);
+  }
   private getFactionImg(formInput, fileName): string {
     return './assets/images/cardBackgrounds/' + formInput.faction + fileName + '.png';
+  }
+  public getNameDataFromService(): any {
+    return this.nameData.asObservable();
   }
 }
