@@ -4,7 +4,6 @@ export let nameData: generatedName[] = [
   {
     id:0o1,
     factionName:'Aquila',
-    factionColor:'237, 28, 36, 255',
     factionImageTop:'./assets/images/cardBackgrounds/AquilaTop.png',
     factionImageBottom:'./assets/images/cardBackgrounds/AquilaBottom.png',
     name1:'Sam',
@@ -15,7 +14,6 @@ export let nameData: generatedName[] = [
   {
     id:0o2,
     factionName:'Pendzal',
-    factionColor:'255, 213, 48, 255',
     factionImageTop:'./assets/images/cardBackgrounds/PendzalTop.png',
     factionImageBottom:'./assets/images/cardBackgrounds/PendzalBottom.png',
     name1:'Vlad',
@@ -26,7 +24,6 @@ export let nameData: generatedName[] = [
   {
     id:0o3,
     factionName:'Sona',
-    factionColor:'255, 213, 48, 255',
     factionImageTop:'./assets/images/cardBackgrounds/SonaTop.png',
     factionImageBottom:'./assets/images/cardBackgrounds/SonaBottom.png',
     name1:'Achmed',
@@ -37,7 +34,6 @@ export let nameData: generatedName[] = [
   {
     id:0o4,
     factionName:'Ekanesh',
-    factionColor:'255, 213, 48, 255',
     factionImageTop:'./assets/images/cardBackgrounds/EkaneshTop.png',
     factionImageBottom:'./assets/images/cardBackgrounds/EkaneshBottom.png',
     name1:'Achmed',
@@ -48,7 +44,6 @@ export let nameData: generatedName[] = [
   {
     id:0o5,
     factionName:'Dugo',
-    factionColor:'255, 213, 48, 255',
     factionImageTop:'./assets/images/cardBackgrounds/DugoTop.png',
     factionImageBottom:'./assets/images/cardBackgrounds/DugoBottom.png',
     name1:'Achmed',

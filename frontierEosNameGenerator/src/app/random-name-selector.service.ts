@@ -31,7 +31,6 @@ export class RandomNameSelectorService {
         {
           id:this.receivedInputFormData.quantity,
           factionName:this.receivedInputFormData.faction,
-          factionColor:'237, 28, 36, 255',
           factionImageTop:this.factionImageTopPath,
           factionImageBottom:this.factionImageBottomPath,
           name1:'Sam',

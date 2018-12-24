@@ -1,7 +1,6 @@
 export class generatedName {
     id:number;
     factionName:string;
-    factionColor:string;
     factionImageTop:string;
     factionImageBottom:string;
     name1:string;
