@@ -26,8 +26,8 @@ export class RandomNameSelectorService {
   
   private exportToArray(formInput): void {
     this.nameArray = [];
-    this.factionImageTopPath = this.getFactionImg(formInput, 'Top');
-    this.factionImageBottomPath = this.getFactionImg(formInput, 'Bottom');
+    this.factionImageTopPath = this.getFactionAssetFile('images/cardBackgrounds/', formInput, 'Top.png');
+    this.factionImageBottomPath = this.getFactionAssetFile('images/cardBackgrounds/', formInput, 'Bottom.png');
     for (this.loopCounter = 0; this.loopCounter < formInput.quantity; this.loopCounter++ ) {
       this.pushToArray = {
         factionName:formInput.faction,
@@ -46,9 +46,11 @@ export class RandomNameSelectorService {
   public updateNameData(): void {
     this.nameData.next(this.nameArray);
   }
-  private getFactionImg(formInput, fileName): string {
-    return './assets/images/cardBackgrounds/' + formInput.faction + fileName + '.png';
+  
+  private getFactionAssetFile(path, formInput, fileSuffixAndType): string {
+    return './assets/' + path + formInput.faction + fileSuffixAndType;
   }
+  
   public getNameDataFromService(): any {
     return this.nameData.asObservable();
   }

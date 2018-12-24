@@ -15,9 +15,7 @@ header {
   padding:1rem;
 }
 header p {
-  width: 10rem;
-  position: relative;
-  left: 8rem;
+  text-align: center;
   color: black;
   font-size: 1.1rem;
   font-weight: bold;
