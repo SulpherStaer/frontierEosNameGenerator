@@ -27,7 +27,7 @@ export class RandomNameSelectorService {
       this.factionImageTopPath = "./assets/images/cardBackgrounds/" + this.receivedInputFormData.faction + "Top.png";
       this.factionImageBottomPath = "./assets/images/cardBackgrounds/" + this.receivedInputFormData.faction + "Bottom.png";
       // I keep overwriting my data instead of adding too it :c how do I fix this...
-      this.nameData = this.nameData.concat( [
+      this.nameData = [
         {
           id:this.receivedInputFormData.quantity,
           factionName:this.receivedInputFormData.faction,
@@ -39,7 +39,7 @@ export class RandomNameSelectorService {
           name3:'Karter',
           fullName:'Sam Porter Karter',
         },
-      ]);
+      ];
     };
     console.log(this.nameData);
   }

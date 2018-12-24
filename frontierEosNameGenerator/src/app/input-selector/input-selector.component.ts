@@ -14,7 +14,7 @@ export class InputSelectorComponent implements OnInit {
   factionData = factionData;
   
   inputForm = new FormGroup({
-    quantity: new FormControl('1'),
+    quantity: new FormControl(1),
     faction: new FormControl('Aquila')
   });
   
