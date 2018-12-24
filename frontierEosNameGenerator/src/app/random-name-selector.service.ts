@@ -18,12 +18,19 @@ export class RandomNameSelectorService {
   public getInputSelectorFormData(dataFromInputSelectorForm): void {
     this.nameData = [];
     console.log("We should generate " + dataFromInputSelectorForm.quantity + " " + dataFromInputSelectorForm.faction + " name.");
-
-    for (this.loopCounter = 0; this.loopCounter < dataFromInputSelectorForm.quantity; this.loopCounter++ ) {
-      this.factionImageTopPath = this.getFactionImg(dataFromInputSelectorForm, 'Top');
-      this.factionImageBottomPath = this.getFactionImg(dataFromInputSelectorForm, 'Bottom');
+        
+    // our exportToArray variables will become different in the future - handle this properly
+    // I expect it will look like (dataFromInputSelectorForm, randomName) and we won't have name1, 2, and 3 as seperate.
+    this.exportToArray(dataFromInputSelectorForm);
+    console.log(this.nameData);
+  }
+  
+  private exportToArray(formInput): void {
+    this.factionImageTopPath = this.getFactionImg(formInput, 'Top');
+    this.factionImageBottomPath = this.getFactionImg(formInput, 'Bottom');
+    for (this.loopCounter = 0; this.loopCounter < formInput.quantity; this.loopCounter++ ) {
       this.pushToArray = {
-        factionName:dataFromInputSelectorForm.faction,
+        factionName:formInput.faction,
         factionImageTop:this.factionImageTopPath,
         factionImageBottom:this.factionImageBottomPath,
         name1:'Sam',
@@ -33,9 +40,8 @@ export class RandomNameSelectorService {
       };
       this.nameData.push(this.pushToArray);
     };
-    console.log(this.nameData);
   }
- 
+  
   private getFactionImg(formInput, fileName): string {
     return './assets/images/cardBackgrounds/' + formInput.faction + fileName + '.png';
   }
