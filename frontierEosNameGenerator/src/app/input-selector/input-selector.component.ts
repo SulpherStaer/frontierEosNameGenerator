@@ -14,15 +14,16 @@ export class InputSelectorComponent implements OnInit {
   factionData = factionData;
   
   inputForm = new FormGroup({
-    quantity: new FormControl(''),
-    faction: new FormControl('')
+    quantity: new FormControl('1'),
+    faction: new FormControl('Aquila')
   });
   
-  constructor() { }
+  constructor(private randomNameSelectorService: RandomNameSelectorService) { }
 
   ngOnInit() {
   }
+  
   public onSubmit(): void {
-    console.log(this.inputForm.value);
+    this.randomNameSelectorService.getInputSelectorFormData(this.inputForm.value);
   }
 }

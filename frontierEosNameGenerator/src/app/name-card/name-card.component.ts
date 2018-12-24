@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { nameData } from '../fakeNameData'
-import { InputSelectorComponent } from '../input-selector/input-selector.component'
 import { RandomNameSelectorService } from '../random-name-selector.service'
 
 @Component({
@@ -11,7 +10,7 @@ import { RandomNameSelectorService } from '../random-name-selector.service'
 export class NameCardComponent implements OnInit {
 
   nameData = nameData;
-  generatedData = inputForm;
+  
   constructor() { }
 
   ngOnInit() {
