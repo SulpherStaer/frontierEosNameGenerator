@@ -14,7 +14,7 @@ export class RandomNameSelectorService {
   nameArray = [];
   pushToArray:any;
   loopCounter:number;
-  fs = require('graceful-fs')
+  //fs = require('graceful-fs')
 
   constructor() { }
   
@@ -35,7 +35,7 @@ export class RandomNameSelectorService {
     
     // I'm stuck trying to read / load my namelist - it says that it can't resolve, and I don't know why
     //this.factionNameList = loadJsonFile(this.factionNameListPath);
-    this.factionNameList = this.fs.readFileSync('./assets/namelists/AquilaNameList.json');
+    //this.factionNameList = this.fs.readFileSync('./assets/namelists/AquilaNameList.json');
     console.log(this.factionNameList)
     
     return 'Sam Porter Karter';
