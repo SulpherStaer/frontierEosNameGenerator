@@ -1,3 +1,14 @@
-{
-"desiredOutput":["firstName", "lastName"]
+{  
+  "desiredOutput":[  
+    "firstName",
+    "lastName"
+  ]  "firstName":[  
+    "bob",
+    "thomas",
+    "taylor"
+  ]  "lastName":[  
+    "karter",
+    "porter",
+    "shepard"
+  ]
 }

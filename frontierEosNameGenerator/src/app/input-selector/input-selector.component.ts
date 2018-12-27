@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup } from '@angular/forms';
-import { GetFileWithHttpRequestService } from '../get-file-with-http-request.service'
+import { TranslateJsonToObjectService } from '../translate-json-to-object.service'
 import { RandomNameSelectorService } from '../random-name-selector.service'
 
 import { factionData } from '../fakeFactionsList'
