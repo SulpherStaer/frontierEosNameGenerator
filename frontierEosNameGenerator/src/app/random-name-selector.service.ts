@@ -1,5 +1,6 @@
 import { Injectable } from '@angular/core';
 import { Observable, BehaviorSubject } from 'rxjs';
+import { GetFileWithHttpRequestService } from './get-file-with-http-request.service'
 
 @Injectable({
   providedIn: 'root'
@@ -8,7 +9,7 @@ export class RandomNameSelectorService {
   
   factionImageTopPath:string;
   factionImageBottomPath:string;
-  factionNameListPath:string;
+  factionNameListPath:any;
   factionNameList:any;
   nameData: BehaviorSubject<any> = new BehaviorSubject(null);
   nameArray = [];
@@ -16,14 +17,14 @@ export class RandomNameSelectorService {
   loopCounter:number;
   //fs = require('graceful-fs')
 
-  constructor() { }
+  constructor(private getFileWithHttpRequestService: GetFileWithHttpRequestService) { }
   
   public generateButtonPressed(dataFromInputSelectorForm): void {
     console.log("We should generate " + dataFromInputSelectorForm.quantity + " " + dataFromInputSelectorForm.faction + " name.");
     
     this.factionImageTopPath = this.getFactionAssetFile('images/cardBackgrounds/', dataFromInputSelectorForm.faction, 'Top.png');
     this.factionImageBottomPath = this.getFactionAssetFile('images/cardBackgrounds/', dataFromInputSelectorForm.faction, 'Bottom.png');
-    this.factionNameListPath = this.getFactionAssetFile('namelists/', dataFromInputSelectorForm.faction, 'NameList.json');
+    this.factionNameListPath = this.getFileWithHttpRequestService.getAssetFromPath('namelists/', dataFromInputSelectorForm.faction, 'NameList.json');
     // our exportToArray variables will become different in the future - handle this properly
     // I expect it will look like (dataFromInputSelectorForm, randomName) and we won't have name1, 2, and 3 as seperate.
     this.exportToArray(dataFromInputSelectorForm);
