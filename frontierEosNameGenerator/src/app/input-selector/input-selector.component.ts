@@ -26,6 +26,7 @@ export class InputSelectorComponent implements OnInit {
   
   public selectedItemChanged(): void {
     console.log(this.selectedItem);
+    // once we get a console log here, see if we can use this to load the nameList
   }
   public onSubmit(): void {
     this.randomNameSelectorService.generateButtonPressed(this.inputForm.value);
