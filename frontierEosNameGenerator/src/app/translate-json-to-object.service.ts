@@ -16,17 +16,17 @@ export class TranslateJsonToObjectService {
   }
   
   public readNameListFromFaction(factionName) {
-
     console.log(`readNameListFromFaction: ${factionName}`);
-    this.getNameListWithHttpRequest('./assets/namelists/' + factionName + 'NameList.json').toPromise().then(
+    this.http.get('./assets/namelists/' + factionName + 'NameList.json').toPromise().then(
       data => (
         this.factionNameList = data
+        
       ),
       error => (
         this.factionNameList = 'error'
       )
     );
-    
+    console.log(this.factionNameList);
     return this.factionNameList;
   }
     

@@ -16,8 +16,13 @@ export class InputSelectorComponent implements OnInit {
   
   inputForm = new FormGroup({
     quantity: new FormControl(1),
-    faction: new FormControl('Aquila')
+    faction: new FormControl('')
   });
+  
+  selectedItemChanged = function(){
+   console.log(selectedItem);
+  }
+});
   
   constructor(private randomNameSelectorService: RandomNameSelectorService) { }
 

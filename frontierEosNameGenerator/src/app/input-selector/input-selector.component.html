@@ -1,7 +1,8 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="inputForm">
   <input type="number" name="quantity" formControlName="quantity" min="1" max="50">
-  <select name="faction" formControlName="faction">
-    <option *ngFor="let generatedFactions of factionData" value="{{generatedFactions.factionName}}">{{generatedFactions.factionName}}</option>
+  <select ng-options="option for option in factionData" 
+    ng-model="selectedItem"
+    ng-change="selectedItemChanged()">
   </select>
   <input type="submit" value="Generate">
 </form>

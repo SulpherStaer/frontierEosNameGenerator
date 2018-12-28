@@ -20,24 +20,29 @@ export class RandomNameSelectorService {
   constructor(private translateJsonToObjectService: TranslateJsonToObjectService) { }
   
   public generateButtonPressed(dataFromInputSelectorForm): void {
+    this.getFactionNameList(dataFromInputSelectorForm.faction);
     console.log("We should generate " + dataFromInputSelectorForm.quantity + " " + dataFromInputSelectorForm.faction + " name.");
     
     this.factionImageTopPath = this.resolveFactionImagePath(dataFromInputSelectorForm.faction, 'Top');
     this.factionImageBottomPath = this.resolveFactionImagePath(dataFromInputSelectorForm.faction, 'Bottom');
-    this.factionNameList = this.getFactionNameList(dataFromInputSelectorForm.faction);
+
     // our exportToArray variables will become different in the future - handle this properly
     // I expect it will look like (dataFromInputSelectorForm, randomName) and we won't have name1, 2, and 3 as seperate.
-    this.exportToArray(dataFromInputSelectorForm);
   }
   
   async getFactionNameList(faction) {
-    this.desiredNameList = await this.translateJsonToObjectService.readNameListFromFaction(faction);
-    return this.desiredNameList;
+    this.factionNameList = await this.translateJsonToObjectService.readNameListFromFaction(faction);
+    await this.exportToArray(faction);
+  }
+
+  private async updateFactionList(faction): Promise<any> {
+    this.factionNameList = this.translateJsonToObjectService.readNameListFromFaction(faction);
+    return;
   }
 
   
   private generateRandomName(faction): any {
-    console.log(this.factionNameList)
+    //console.log(this.factionNameList)
     
     // I'm stuck trying to read / load my namelist - it says that it can't resolve, and I don't know why
     //this.factionNameList = loadJsonFile(this.factionNameListPath);
@@ -57,7 +62,7 @@ export class RandomNameSelectorService {
         fullName:this.generateRandomName(formInput.faction),
       };
       this.nameArray.push(this.pushToArray);
-      console.log(this.nameArray);
+      //console.log(this.nameArray);
     };
     this.updateNameData();
   }
