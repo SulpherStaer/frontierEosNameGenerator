@@ -10,6 +10,7 @@ export class RandomNameSelectorService {
   factionImageTopPath:string;
   factionImageBottomPath:string;
   factionNameList:any;
+  desiredNameList:any;
   nameData: BehaviorSubject<any> = new BehaviorSubject(null);
   nameArray = [];
   pushToArray:any;
@@ -23,12 +24,17 @@ export class RandomNameSelectorService {
     
     this.factionImageTopPath = this.resolveFactionImagePath(dataFromInputSelectorForm.faction, 'Top');
     this.factionImageBottomPath = this.resolveFactionImagePath(dataFromInputSelectorForm.faction, 'Bottom');
-    this.factionNameList = this.translateJsonToObjectService.readNameListFromFaction(dataFromInputSelectorForm.faction);
+    this.factionNameList = this.getFactionNameList(dataFromInputSelectorForm.faction);
     // our exportToArray variables will become different in the future - handle this properly
     // I expect it will look like (dataFromInputSelectorForm, randomName) and we won't have name1, 2, and 3 as seperate.
     this.exportToArray(dataFromInputSelectorForm);
   }
   
+  async getFactionNameList(faction) {
+    this.desiredNameList = await this.translateJsonToObjectService.readNameListFromFaction(faction);
+    return this.desiredNameList;
+  }
+
   
   private generateRandomName(faction): any {
     console.log(this.factionNameList)
@@ -38,6 +44,7 @@ export class RandomNameSelectorService {
     //this.factionNameList = this.fs.readFileSync('./assets/namelists/AquilaNameList.json');
     
     return 'Sam Porter Karter';
+    
   }
   
   private exportToArray(formInput): void {
