@@ -12,23 +12,21 @@ import { factionData } from '../fakeFactionsList'
 })
 export class InputSelectorComponent implements OnInit {
 
-  factionData = factionData;
-  
+  factionData = ['Aquila', 'Dugo', 'Ekanesh', 'Pendzal', 'Sona'];
+  selectedItem:string;
   inputForm = new FormGroup({
     quantity: new FormControl(1),
     faction: new FormControl('')
   });
-  
-  selectedItemChanged = function(){
-   console.log(selectedItem);
-  }
-});
   
   constructor(private randomNameSelectorService: RandomNameSelectorService) { }
 
   ngOnInit() {
   }
   
+  public selectedItemChanged(): void {
+    console.log(this.selectedItem);
+  }
   public onSubmit(): void {
     this.randomNameSelectorService.generateButtonPressed(this.inputForm.value);
   }
