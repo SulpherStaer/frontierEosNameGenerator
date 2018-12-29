@@ -26,3 +26,6 @@ section {
   background-position: right bottom;
   background-size:25%;
 }
+input {
+  width:20rem;
+}
