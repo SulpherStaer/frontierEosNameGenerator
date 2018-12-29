@@ -11,9 +11,8 @@ import { factionData } from '../fakeFactionsList'
 })
 export class InputSelectorComponent implements OnInit {
 
-  factionData = ['Aquila', 'Dugo', 'Ekanesh', 'Pendzal', 'Sona'];
+  factionData = factionData;
   selectedItem:string;
-  inputControllerWrapper = angular.module('inputControllerWrapper',[]);
   inputForm = new FormGroup({
     quantity: new FormControl(1),
     faction: new FormControl('')
@@ -23,16 +22,13 @@ export class InputSelectorComponent implements OnInit {
 
   ngOnInit() {
   }
-
-  //I don't know why this isn't working... The internet doesn't explain how to get a .controller in a component, just raw <script> included files.
-  private inputControllerWrapper.controller('inputController', ['$scope', function($scope) {
-  }]);
   
   public selectedItemChanged(): void {
     console.log(this.selectedItem);
     // once we get a console log here, see if we can use this to load the nameList
   }
   public onSubmit(): void {
+    console.log(this.factionData)
     this.randomNameSelectorService.generateButtonPressed(this.inputForm.value);
   }
 }
