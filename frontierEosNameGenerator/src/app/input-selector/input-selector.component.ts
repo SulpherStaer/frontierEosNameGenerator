@@ -13,8 +13,7 @@ export class InputSelectorComponent implements OnInit {
 
   factionData = ['Aquila', 'Dugo', 'Ekanesh', 'Pendzal', 'Sona'];
   selectedItem:string;
-  inputController:any;
-  // this needs to be a .controller thing - but I don't know how to turn it into one.
+  inputControllerWrapper = angular.module('inputControllerWrapper',[]);
   inputForm = new FormGroup({
     quantity: new FormControl(1),
     faction: new FormControl('')
@@ -24,10 +23,10 @@ export class InputSelectorComponent implements OnInit {
 
   ngOnInit() {
   }
-  /* this doesn't work - but I don't know how else to get the .controller
-  private inputControllerWrapper.controller('inputController', ['$scope', function($scope)) {
-    
-  } */
+
+  //I don't know why this isn't working... The internet doesn't explain how to get a .controller in a component, just raw <script> included files.
+  private inputControllerWrapper.controller('inputController', ['$scope', function($scope) {
+  }]);
   
   public selectedItemChanged(): void {
     console.log(this.selectedItem);
