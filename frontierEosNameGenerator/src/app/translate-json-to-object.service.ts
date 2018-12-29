@@ -16,7 +16,7 @@ export class TranslateJsonToObjectService {
   }
   
   public readNameListFromFaction(factionName) {
-    console.log(`readNameListFromFaction: ${factionName}`);
+    console.log('Attemmpting to load ' + factionName + 'NameList');
     this.http.get('./assets/namelists/' + factionName + 'NameList.json').toPromise().then(
       data => (
         this.factionNameList = data
@@ -26,6 +26,7 @@ export class TranslateJsonToObjectService {
         this.factionNameList = 'error'
       )
     );
+    console.log('NameList data that was loaded:');
     console.log(this.factionNameList);
     return this.factionNameList;
   }

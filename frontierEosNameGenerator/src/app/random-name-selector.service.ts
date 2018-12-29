@@ -10,46 +10,31 @@ export class RandomNameSelectorService {
   factionImageTopPath:string;
   factionImageBottomPath:string;
   factionNameList:any;
-  desiredNameList:any;
+  generatedName:string;
   nameData: BehaviorSubject<any> = new BehaviorSubject(null);
   nameArray = [];
   pushToArray:any;
   loopCounter:number;
-  //fs = require('graceful-fs')
 
   constructor(private translateJsonToObjectService: TranslateJsonToObjectService) { }
   
-  public generateButtonPressed(dataFromInputSelectorForm): void {
-    this.getFactionNameList(dataFromInputSelectorForm.faction);
-    console.log("We should generate " + dataFromInputSelectorForm.quantity + " " + dataFromInputSelectorForm.faction + " name.");
-    
+  public generateButtonPressed(dataFromInputSelectorForm, selectedNameList): void {
+    console.log("Generating " + dataFromInputSelectorForm.quantity + " " + dataFromInputSelectorForm.faction + " name(s).");
+    // IS.component pre-loaded this, but async is fucking me up, so it is loaded again for real this time
+    this.factionNameList = selectedNameList;
+    this.factionNameList = this.translateJsonToObjectService.readNameListFromFaction(dataFromInputSelectorForm.faction);
     this.factionImageTopPath = this.resolveFactionImagePath(dataFromInputSelectorForm.faction, 'Top');
     this.factionImageBottomPath = this.resolveFactionImagePath(dataFromInputSelectorForm.faction, 'Bottom');
-
-    // our exportToArray variables will become different in the future - handle this properly
-    // I expect it will look like (dataFromInputSelectorForm, randomName) and we won't have name1, 2, and 3 as seperate.
+    this.exportToArray(dataFromInputSelectorForm);
   }
   
-  async getFactionNameList(faction) {
-    this.factionNameList = await this.translateJsonToObjectService.readNameListFromFaction(faction);
-    await this.exportToArray(faction);
-  }
-
-  private async updateFactionList(faction): Promise<any> {
-    this.factionNameList = this.translateJsonToObjectService.readNameListFromFaction(faction);
-    return;
-  }
-
-  
-  private generateRandomName(faction): any {
-    //console.log(this.factionNameList)
-    
-    // I'm stuck trying to read / load my namelist - it says that it can't resolve, and I don't know why
-    //this.factionNameList = loadJsonFile(this.factionNameListPath);
-    //this.factionNameList = this.fs.readFileSync('./assets/namelists/AquilaNameList.json');
+  private generateRandomName(): any {
+    // we have the name list now
+    // desiredOutput holds the things we want
+    // for every desiredOutput, we need to see if there is such a named object in the whole namelist
+    // for each of the found items, we calculate how much objects are inside said item, and rndNumber return 1 of them
     
     return 'Sam Porter Karter';
-    
   }
   
   private exportToArray(formInput): void {
@@ -59,10 +44,11 @@ export class RandomNameSelectorService {
         factionName:formInput.faction,
         factionImageTop:this.factionImageTopPath,
         factionImageBottom:this.factionImageBottomPath,
-        fullName:this.generateRandomName(formInput.faction),
+        fullName:this.generateRandomName(),
       };
       this.nameArray.push(this.pushToArray);
-      //console.log(this.nameArray);
+      console.log('Presenting generated data:');
+      console.log(this.nameArray);
     };
     this.updateNameData();
   }
