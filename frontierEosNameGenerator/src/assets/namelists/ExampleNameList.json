@@ -1,9 +1,14 @@
 {
   "desiredOutput": [
     "randomPrefix",
+    "space",
     "firstName",
+    "space",
     "lastName",
     "specialSuffix"
+  ],
+  "space": [
+    " "
   ],
   "randomPrefix": [
     "",

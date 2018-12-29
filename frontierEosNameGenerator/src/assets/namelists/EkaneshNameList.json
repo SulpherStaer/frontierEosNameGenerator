@@ -1,7 +1,11 @@
 {
   "desiredOutput": [
     "firstName",
+    "space",
     "lastName"
+  ],
+  "space": [
+    " "
   ],
   "firstName": [
     "Aghavni",

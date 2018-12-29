@@ -1,9 +1,14 @@
 {
   "desiredOutput": [
     "firstName",
+    "space",
     "lastName",
+    "space",
     "lastName",
     "hyphenatedLastNameChance"
+  ],
+  "space": [
+    " "
   ],
   "firstName": [
     "Abacan",

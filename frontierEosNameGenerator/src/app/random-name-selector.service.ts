@@ -34,7 +34,7 @@ export class RandomNameSelectorService {
     this.generatedName = '';
     for (this.nameLoopCounter = 0; this.nameLoopCounter < this.factionNameList.desiredOutput.length; this.nameLoopCounter++ ) {
       this.nameRandomNumber = Math.floor((Math.random() * this.factionNameList[this.factionNameList.desiredOutput[this.nameLoopCounter]].length));
-      this.generatedName = this.generatedName + this.nameFirstLetterToUpperCase(this.factionNameList[this.factionNameList.desiredOutput[this.nameLoopCounter]][this.nameRandomNumber]) + ' ';
+      this.generatedName = this.generatedName + this.nameFirstLetterToUpperCase(this.factionNameList[this.factionNameList.desiredOutput[this.nameLoopCounter]][this.nameRandomNumber]);
     }
     return this.generatedName;
   }
