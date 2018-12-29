@@ -1,6 +1,7 @@
 {
   "desiredOutput": [
     "firstName",
+    "lastName",
     "lastName"
   ],
   "firstName": [

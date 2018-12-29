@@ -15,6 +15,8 @@ export class RandomNameSelectorService {
   nameArray = [];
   pushToArray:any;
   loopCounter:number;
+  nameLoopCounter:number;
+  nameRandomNumber:number;
 
   constructor(private translateJsonToObjectService: TranslateJsonToObjectService) { }
   
@@ -29,12 +31,12 @@ export class RandomNameSelectorService {
   }
   
   private generateRandomName(): any {
-    // we have the name list now
-    // desiredOutput holds the things we want
-    // for every desiredOutput, we need to see if there is such a named object in the whole namelist
-    // for each of the found items, we calculate how much objects are inside said item, and rndNumber return 1 of them
-    
-    return 'Sam Porter Karter';
+    this.generatedName = '';
+    for (this.nameLoopCounter = 0; this.nameLoopCounter < this.factionNameList.desiredOutput.length; this.nameLoopCounter++ ) {
+      this.nameRandomNumber = Math.floor((Math.random() * this.factionNameList[this.factionNameList.desiredOutput[this.nameLoopCounter]].length));
+      this.generatedName = this.generatedName + this.nameFirstLetterToUpperCase(this.factionNameList[this.factionNameList.desiredOutput[this.nameLoopCounter]][this.nameRandomNumber]) + ' ';
+    }
+    return this.generatedName;
   }
   
   private exportToArray(formInput): void {
@@ -59,6 +61,10 @@ export class RandomNameSelectorService {
   
   private resolveFactionImagePath(faction, position): string {
     return './assets/images/cardBackgrounds/' + faction + position + '.png';
+  }
+  
+  private nameFirstLetterToUpperCase(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
   }
   
   public getNameDataFromService(): any {
