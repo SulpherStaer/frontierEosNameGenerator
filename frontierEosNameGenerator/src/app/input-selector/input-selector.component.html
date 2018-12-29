@@ -1,7 +1,7 @@
 <form (ngSubmit)="onSubmit()" [formGroup]="inputForm">
   <input type="number" name="quantity" formControlName="quantity" min="1" max="50">
   <select name="faction" formControlName="faction" (change)="selectedItemChanged($event)">
-    <option *ngFor="let generatedFactions of factionData" value="{{generatedFactions.factionName}}">{{generatedFactions.factionName}}</option>
+    <option *ngFor="let faction of nameListJson" value="{{faction}}">{{faction}}</option>
   </select>
   <input [disabled]="!this.selectedFaction" type="submit" value="Generate">
 </form>

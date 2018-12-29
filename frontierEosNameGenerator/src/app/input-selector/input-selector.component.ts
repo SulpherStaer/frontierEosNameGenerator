@@ -3,8 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { RandomNameSelectorService } from '../random-name-selector.service'
 import { TranslateJsonToObjectService } from '../translate-json-to-object.service'
 
-import * as json from './../assets/namelists/nameListsList.json';
-import { factionData } from '../fakeFactionsList'
+import nameListJson from '../../assets/namelists/nameListsList.json';
 
 @Component({
   selector: 'app-input-selector',
@@ -12,8 +11,7 @@ import { factionData } from '../fakeFactionsList'
   styleUrls: ['./input-selector.component.css']
 })
 export class InputSelectorComponent implements OnInit {
-
-  factionData = factionData;
+  nameListJson = nameListJson.nameListChoices
   selectedFaction:string;
   factionNameList:any;
   inputForm = new FormGroup({
@@ -23,7 +21,7 @@ export class InputSelectorComponent implements OnInit {
   
   constructor(private randomNameSelectorService: RandomNameSelectorService, private translateJsonToObjectService: TranslateJsonToObjectService) { }
 
-  ngOnInit() {
+  ngOnInit() { console.log(nameListJson);
   }
   
   private selectedItemChanged(event: any): void {
