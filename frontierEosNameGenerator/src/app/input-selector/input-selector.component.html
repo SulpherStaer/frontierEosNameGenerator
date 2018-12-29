@@ -1,8 +1,10 @@
-<form (ngSubmit)="onSubmit()" [formGroup]="inputForm">
-  <input type="number" name="quantity" formControlName="quantity" min="1" max="50">
-  <select ng-options="option for option in factionData" 
-    ng-model="selectedItem"
-    ng-change="selectedItemChanged()">
-  </select>
-  <input type="submit" value="Generate">
-</form>
+<div ng-controller="inputController">
+  <form (ngSubmit)="onSubmit()" [formGroup]="inputForm">
+    <input type="number" name="quantity" formControlName="quantity" min="1" max="50">
+    <select ng-options="option for option in factionData" 
+      ng-model="selectedItem"
+      ng-change="selectedItemChanged()">
+    </select>
+    <input type="submit" value="Generate">
+  </form>
+</div>
