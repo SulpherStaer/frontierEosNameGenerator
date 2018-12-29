@@ -3,6 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { RandomNameSelectorService } from '../random-name-selector.service'
 import { TranslateJsonToObjectService } from '../translate-json-to-object.service'
 
+import json from './assets/namelists/nameListsList.json';
 import { factionData } from '../fakeFactionsList'
 
 @Component({
