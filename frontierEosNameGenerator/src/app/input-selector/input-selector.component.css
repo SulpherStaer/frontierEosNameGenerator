@@ -10,7 +10,7 @@ input[type="submit"] {
   padding: 0.5rem 1rem;
   transition: 0.4s;
   margin-bottom: 0.5rem;
-  text-shadow: 1px 1px 4px rgba(38,46,62,0.9);
+  text-shadow: 1px 1px 4px rgba(38,46,62,0.6);
 }
 input[type="submit"]:hover,input[type="submit"]:focus, input[type="submit"]:active {
   background:#507ef2;
@@ -22,13 +22,18 @@ input[disabled],input[disabled]:hover,input[disabled]:focus,input[disabled]:acti
   background: #3b414e;
   border-color: #ccd1dd;
 }
+input[type="number"] {
+  padding: 0.3rem 0.5rem;
+}
+select {
+  padding: 0.26rem;
+}
 select, input[type="number"] {
   width:auto;
   background: none;
   border: 0;
   border-bottom: 2px solid #838795;
   color: #838795;
-  padding: 0.3rem 0.5rem;
   transition: 0.3s;
 }
 select:hover, select:active, select:focus, input[type="number"]:hover, input[type="number"]:active, input[type="number"]:focus {

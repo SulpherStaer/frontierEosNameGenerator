@@ -18,7 +18,9 @@ header {
   padding:0.25rem;
 }
 header p {
-  text-align: center;
+  color: #FFF;
+  text-indent: 1.5rem;
+  text-shadow: 1px 1px 4px rgba(38,46,62,0.6);
   font-family: "Roboto-Light","Roboto-Thin",sans-serif,arial;
   font-size: 1.1rem;
   font-weight: bold;
