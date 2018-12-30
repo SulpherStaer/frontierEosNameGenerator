@@ -5,6 +5,12 @@
 /tmp
 /out-tsc
 
+# ng test files
+karma.conf.js
+test.ts
+*.spec.ts
+/environments
+
 # dependencies
 /node_modules
 
