@@ -1,7 +1,6 @@
 input {
   margin: 0.5rem;
 }
-
 input[type="submit"] {
   cursor: pointer;
   color: #FFF;
@@ -18,14 +17,13 @@ input[type="submit"]:hover,input[type="submit"]:focus, input[type="submit"]:acti
   border-color:#507ef2;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
 }
-
 input[disabled],input[disabled]:hover,input[disabled]:focus,input[disabled]:active {
   color: #ccd1dd;
   background: #3b414e;
   border-color: #ccd1dd;
 }
-input[type="number"] {
-  width:3rem;
+select, input[type="number"] {
+  width:auto;
   background: none;
   border: 0;
   border-bottom: 2px solid #838795;
@@ -33,9 +31,12 @@ input[type="number"] {
   padding: 0.3rem 0.5rem;
   transition: 0.3s;
 }
-
-input[type="number"]:hover, input[type="number"]:active, input[type="number"]:focus {
+select:hover, select:active, select:focus, input[type="number"]:hover, input[type="number"]:active, input[type="number"]:focus {
   border: 0;
   color: #ccd1dd;
   border-bottom: 2px solid #507ef2;
+}
+option {
+  color: #ccd1dd;
+  background: #3b414e;
 }
