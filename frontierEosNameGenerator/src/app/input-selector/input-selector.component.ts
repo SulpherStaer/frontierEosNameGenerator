@@ -24,7 +24,7 @@ export class InputSelectorComponent implements OnInit {
   ngOnInit() { console.log(nameListJson);
   }
   
-  private selectedItemChanged(event: any): void {
+  public selectedItemChanged(event: any): void {
     console.log('Selected faction changed. Pre-loading ' + event.target.value + 'NameList.');
     this.selectedFaction = event.target.value;
     //async is fucking me up, so we pre-load this, which fails, and call it again in RNS.service
