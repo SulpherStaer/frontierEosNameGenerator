@@ -12,7 +12,7 @@ input[type="submit"] {
   margin-bottom: 0.5rem;
   text-shadow: 1px 1px 4px rgba(38,46,62,0.6);
 }
-input[type="submit"]:hover,input[type="submit"]:focus, input[type="submit"]:active {
+input[type="submit"]:hover,input[type="submit"]:focus,input[type="submit"]:active {
   background:#507ef2;
   border-color:#507ef2;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -26,6 +26,7 @@ input[type="number"] {
   padding: 0.3rem 0.5rem;
 }
 select {
+  cursor: pointer;
   padding: 0.26rem;
 }
 select, input[type="number"] {

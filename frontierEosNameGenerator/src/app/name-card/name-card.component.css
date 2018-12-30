@@ -33,13 +33,16 @@ section {
 }
 
 input[type="text"] {
-    width:17rem;
-    background: none;
-    border: 0;
-    border-bottom: 2px solid #838795;
-    color: #ccd1dd;
-    padding: 0.3rem 0.5rem;
-    transition: 0.3s;
+  width:17rem;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid #838795;
+  color: #ccd1dd;
+  padding: 0.3rem 0.5rem;
+  transition: 0.3s;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 input[type="text"]:hover, input[type="text"]:active, input[type="text"]:focus {
   border: 0;
