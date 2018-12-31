@@ -47,11 +47,11 @@ export class RandomNameSelectorService {
         factionImageTop:this.factionImageTopPath,
         factionImageBottom:this.factionImageBottomPath,
         fullName:this.generateRandomName(),
-        customsDataOptionalRank:''; // custom text field
-        customsDataOptionalICCID:''; // long ass number, ask thijs
-        customsDataThreatAssesment:''; // danger pips 5
-        customsDataCustomsDisposition:''; //access granted / denied / detain
-        customsDataBastionClearance:''; //rank pips 3
+        customsDataOptionalRank:'', // custom text field
+        customsDataOptionalICCID:'', // long ass number, ask thijs
+        customsDataThreatAssesment:'', // danger pips 5
+        customsDataCustomsDisposition:'', //access granted / denied / detain
+        customsDataBastionClearance:'', //rank pips 3
         
       };
       this.nameArray.push(this.pushToArray);

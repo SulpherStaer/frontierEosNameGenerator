@@ -31,9 +31,8 @@ section {
   background-position: right bottom;
   background-size:25%;
 }
-
 input[type="text"] {
-  width:17rem;
+  width:auto;
   background: none;
   border: 0;
   border-bottom: 2px solid #838795;
@@ -43,6 +42,9 @@ input[type="text"] {
   white-space: nowrap; 
   overflow: hidden;
   text-overflow: ellipsis;
+}
+input[type="text"]#name {
+    width:17rem;
 }
 input[type="text"]:hover, input[type="text"]:active, input[type="text"]:focus {
   border: 0;
