@@ -4,10 +4,10 @@
     <br>
     <form><input id="name" type="text" value="{{generatedName.fullName}}">
     <br>
-    <aside style="background-color:#414857;font-size:0.75rem;">
+    <aside *ngIf="exportFeatureActive$" style="background-color:#414857;font-size:0.75rem;">
       The form below is preperation for an export function into the customs database. It does not work yet, and is only for show.
     </aside>
-    <footer>
+    <footer *ngIf="exportFeatureActive$">
       <hr>
 
         Rank<input type="text" value="job description"><br>
