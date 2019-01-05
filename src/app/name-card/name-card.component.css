@@ -1,3 +1,7 @@
+#cardFlex {
+  display: flex;
+  flex-wrap: wrap;
+}
 .card {
   background-color: #2c3445;
   font-family: "Roboto-regular",sans-serif,arial;

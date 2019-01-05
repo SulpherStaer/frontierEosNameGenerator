@@ -1,4 +1,4 @@
-<section *ngIf="nameData$">
+<div id="cardFlex" *ngIf="nameData$">
   <section *ngFor="let generatedName of nameData$" class="card" [style.background-image]="'url('+generatedName.factionImageBottom+')'">
     <header [style.background-image]="'url('+generatedName.factionImageTop+')'"><p>{{generatedName.factionName}}</p></header>
     <br>
@@ -19,4 +19,4 @@
     </footer>
     </form>
   </section>
-</section>
+</div>
