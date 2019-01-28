@@ -10,13 +10,8 @@ export class RandomNameSelectorService {
   factionImageTopPath:string;
   factionImageBottomPath:string;
   factionNameList:any;
-  generatedName:string;
   nameData: BehaviorSubject<any> = new BehaviorSubject(null);
   nameArray = [];
-  pushToArray:any;
-  loopCounter:number;
-  nameLoopCounter:number;
-  nameRandomNumber:number;
 
   constructor(private translateJsonToObjectService: TranslateJsonToObjectService) { }
   
@@ -31,18 +26,18 @@ export class RandomNameSelectorService {
   }
   
   private generateRandomName(): any {
-    this.generatedName = '';
-    for (this.nameLoopCounter = 0; this.nameLoopCounter < this.factionNameList.desiredOutput.length; this.nameLoopCounter++ ) {
-      this.nameRandomNumber = Math.floor((Math.random() * this.factionNameList[this.factionNameList.desiredOutput[this.nameLoopCounter]].length));
-      this.generatedName = this.generatedName + this.nameFirstLetterToUpperCase(this.factionNameList[this.factionNameList.desiredOutput[this.nameLoopCounter]][this.nameRandomNumber]);
+    let generatedName:string = '';
+    for (let nameLoopCounter:number = 0; nameLoopCounter < this.factionNameList.desiredOutput.length; nameLoopCounter++ ) {
+      let nameRandomNumber:number = Math.floor((Math.random() * this.factionNameList[this.factionNameList.desiredOutput[nameLoopCounter]].length));
+      generatedName = generatedName + this.nameFirstLetterToUpperCase(this.factionNameList[this.factionNameList.desiredOutput[nameLoopCounter]][nameRandomNumber]);
     }
-    return this.generatedName;
+    return generatedName;
   }
   
   private exportToArray(formInput): void {
     this.nameArray = [];
-    for (this.loopCounter = 0; this.loopCounter < formInput.quantity; this.loopCounter++ ) {
-      this.pushToArray = {
+    for (let loopCounter:number = 0; loopCounter < formInput.quantity; loopCounter++ ) {
+      let pushToArray = {
         factionName:formInput.faction,
         factionImageTop:this.factionImageTopPath,
         factionImageBottom:this.factionImageBottomPath,
@@ -54,7 +49,7 @@ export class RandomNameSelectorService {
         customsDataBastionClearance:'', //rank pips 3
         
       };
-      this.nameArray.push(this.pushToArray);
+      this.nameArray.push(pushToArray);
       console.log('Presenting generated data:');
       console.log(this.nameArray);
     };

@@ -7,14 +7,14 @@ import { RandomNameSelectorService } from '../random-name-selector.service'
   styleUrls: ['./name-card.component.css']
 })
 export class NameCardComponent implements OnInit {
-
-  nameData$: any;
+  
+  nameData$:any
   
   constructor(private randomNameService: RandomNameSelectorService) { }
 
   ngOnInit() {
-    this.randomNameService.getNameDataFromService().subscribe(res => {
-      this.nameData$ = res;
+    this.randomNameService.getNameDataFromService().subscribe(subscribedDataResult => {
+      this.nameData$ = subscribedDataResult;
     });
   }
 
