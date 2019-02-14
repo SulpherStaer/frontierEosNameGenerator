@@ -1,0 +1,9 @@
+{
+    "apps": [
+        {
+            "name": "NameGen",
+            "script": "npm",
+            "args" : "run server"
+        }
+    ]
+}
