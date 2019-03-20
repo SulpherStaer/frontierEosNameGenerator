@@ -11,9 +11,11 @@ import nameListJson from '../../assets/namelists/nameListsList_v2.json';
   styleUrls: ['./input-selector.component.css']
 })
 export class InputSelectorComponent implements OnInit {
-  nameListJson = nameListJson.nameListChoices
+  nameListJson = nameListJson.nameListChoices; 
+  sanitizedNameListJson = [];
   selectedFaction:string;
   factionNameList:any;
+  
   inputForm = new FormGroup({
     quantity: new FormControl(1),
     faction: new FormControl('Select Faction')
@@ -35,5 +37,11 @@ export class InputSelectorComponent implements OnInit {
     console.log('Generate button pressed:');
     console.log(this.inputForm.value, this.factionNameList);
     this.randomNameSelectorService.generateButtonPressed(this.inputForm.value, this.factionNameList);
+  }
+  private nameListSanitation(dirtyNameList): void {
+    let nameListToken:string = '';
+    dirtyNameList.forEach(function (nameListToken)) {
+      this.sanitizedNameListJson.push(nameListToken.split("_",1));
+    }
   }
 }
