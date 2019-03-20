@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { RandomNameSelectorService } from '../random-name-selector.service'
 import { TranslateJsonToObjectService } from '../translate-json-to-object.service'
 
-import nameListJson from '../../assets/namelists/nameListsList.json';
+import nameListJson from '../../assets/namelists/nameListsList_v2.json';
 
 @Component({
   selector: 'app-input-selector',
