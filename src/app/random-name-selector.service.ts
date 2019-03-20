@@ -7,6 +7,7 @@ import { TranslateJsonToObjectService } from './translate-json-to-object.service
 })
 export class RandomNameSelectorService {
   
+  sanitizedFactionName:string;
   factionImageTopPath:string;
   factionImageBottomPath:string;
   factionNameList:any;
@@ -16,12 +17,13 @@ export class RandomNameSelectorService {
   constructor(private translateJsonToObjectService: TranslateJsonToObjectService) { }
   
   public generateButtonPressed(dataFromInputSelectorForm, selectedNameList): void {
+    this.sanitizedFactionName = this.factionNameSanitation(dataFromInputSelectorForm.faction);
     console.log("Generating " + dataFromInputSelectorForm.quantity + " " + dataFromInputSelectorForm.faction + " name(s).");
     // IS.component pre-loaded this, but async is fucking me up, so it is loaded again for real this time
     this.factionNameList = selectedNameList;
     this.factionNameList = this.translateJsonToObjectService.readNameListFromFaction(dataFromInputSelectorForm.faction);
-    this.factionImageTopPath = this.resolveFactionImagePath(dataFromInputSelectorForm.faction, 'Top');
-    this.factionImageBottomPath = this.resolveFactionImagePath(dataFromInputSelectorForm.faction, 'Bottom');
+    this.factionImageTopPath = this.resolveFactionImagePath(this.sanitizedFactionName, 'Top');
+    this.factionImageBottomPath = this.resolveFactionImagePath(this.sanitizedFactionName, 'Bottom');
     this.exportToArray(dataFromInputSelectorForm);
   }
   
@@ -38,7 +40,7 @@ export class RandomNameSelectorService {
     this.nameArray = [];
     for (let loopCounter:number = 0; loopCounter < formInput.quantity; loopCounter++ ) {
       let pushToArray = {
-        factionName:formInput.faction,
+        factionName:this.sanitizedFactionName,
         factionImageTop:this.factionImageTopPath,
         factionImageBottom:this.factionImageBottomPath,
         fullName:this.generateRandomName(),
@@ -70,5 +72,10 @@ export class RandomNameSelectorService {
   
   public getNameDataFromService(): any {
     return this.nameData.asObservable();
+  }
+  private factionNameSanitation(string) {
+    let cleanFactionName = [];
+    cleanFactionName = string.split("_");
+    return cleanFactionName[0];
   }
 }

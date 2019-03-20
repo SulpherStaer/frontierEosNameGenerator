@@ -3,7 +3,7 @@ import { FormControl, FormGroup } from '@angular/forms';
 import { RandomNameSelectorService } from '../random-name-selector.service'
 import { TranslateJsonToObjectService } from '../translate-json-to-object.service'
 
-import nameListJson from '../../assets/namelists/nameListsList_v2.json';
+import nameListJson from '../../assets/namelists/nameListsList_v3.json';
 
 @Component({
   selector: 'app-input-selector',
@@ -12,7 +12,6 @@ import nameListJson from '../../assets/namelists/nameListsList_v2.json';
 })
 export class InputSelectorComponent implements OnInit {
   nameListJson = nameListJson.nameListChoices; 
-  sanitizedNameListJson = [];
   selectedFaction:string;
   factionNameList:any;
   
@@ -37,11 +36,5 @@ export class InputSelectorComponent implements OnInit {
     console.log('Generate button pressed:');
     console.log(this.inputForm.value, this.factionNameList);
     this.randomNameSelectorService.generateButtonPressed(this.inputForm.value, this.factionNameList);
-  }
-  private nameListSanitation(dirtyNameList): void {
-    let nameListToken:string = '';
-    dirtyNameList.forEach(function (nameListToken)) {
-      this.sanitizedNameListJson.push(nameListToken.split("_",1));
-    }
   }
 }
