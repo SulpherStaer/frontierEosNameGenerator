@@ -6,12 +6,11 @@ import { map } from 'rxjs/operators';
 @Injectable({
   providedIn: 'root'
 })
-export class TranslateJsonToObjectService {
+export class FengApiService {
   factionNameList:any;
   
   public readNameListFromFaction(factionName) {
 
-    console.log('Attemmpting to load ' + factionName + 'NameList');
     this.http.get('./assets/namelists/' + factionName + 'NameList.json').toPromise().then(
       data => (
         this.factionNameList = data
@@ -21,11 +20,21 @@ export class TranslateJsonToObjectService {
         this.factionNameList = 'error'
       )
     );
-    console.log('NameList data that was loaded:');
-    console.log(this.factionNameList);
     return this.factionNameList;
   }
-    
+  public resolveFactionImagePath(faction, position): string {
+    return './assets/images/cardBackgrounds/' + faction + position + '.png';
+  }
+  
+  public firstLetterToUpperCase(string) {
+    return string.charAt(0).toUpperCase() + string.slice(1);
+  }
+
+  public factionNameSanitation(string) {
+    let cleanFactionName = [];
+    cleanFactionName = string.split("_");
+    return cleanFactionName[0];
+  }
     
 
   constructor(private http: HttpClient) { }

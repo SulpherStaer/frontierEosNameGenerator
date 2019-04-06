@@ -3,20 +3,6 @@
     <header [style.background-image]="'url('+generatedName.factionImageTop+')'"><p>{{generatedName.factionName}}</p></header>
     <br>
     <form><input id="name" type="text" value="{{generatedName.fullName}}">
-    <br>
-    <aside *ngIf="exportFeatureActive$" style="background-color:#414857;font-size:0.75rem;">
-      The form below is preperation for an export function into the customs database. It does not work yet, and is only for show.
-    </aside>
-    <footer *ngIf="exportFeatureActive$">
-      <hr>
-
-        Rank<input type="text" value="job description"><br>
-        ICC id<input type="text" value="#### ##### ####"><br>
-        Threat Assesment<input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"><input type="checkbox"><br>
-        Customs Disposition<select><option value="option-1">Option 1</option><option value="option-2">Option 2</option></select><br>
-        Clearance Level<input type="checkbox"><input type="checkbox"><input type="checkbox">
-      <hr>
-    </footer>
     </form>
   </section>
 </div>
