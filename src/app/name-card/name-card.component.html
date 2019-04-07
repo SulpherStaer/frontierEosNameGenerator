@@ -1,8 +1,9 @@
 <div id="cardFlex" *ngIf="nameData$">
   <section *ngFor="let generatedName of nameData$" class="card" [style.background-image]="'url('+generatedName.factionImageBottom+')'">
-    <header [style.background-image]="'url('+generatedName.factionImageTop+')'"><p>{{generatedName.factionName}}</p></header>
-    <br>
-    <form><input id="name" type="text" value="{{generatedName.fullName}}">
+    <form>
+      <header [style.background-image]="'url('+generatedName.factionImageTop+')'"><p>{{generatedName.factionName}}</p></header>
+      <input id="exportToCustoms" type="submit" value="💾 Export">
+      <input id="name" type="text" value="{{generatedName.fullName}}">
     </form>
   </section>
 </div>

@@ -3,5 +3,5 @@
   <select name="faction" formControlName="faction" (change)="selectedItemChanged($event)">
     <option *ngFor="let faction of nameListJson" value="{{ faction.label }}">{{ faction.readableName }}</option>
   </select>
-  <input [disabled]="!this.selectedFaction" type="submit" value="Generate">
+  <input [disabled]="!this.selectedFaction" type="submit" value="🎲 Generate">
 </form>

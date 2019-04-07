@@ -6,12 +6,14 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AppComponent } from './app.component';
 import { NameCardComponent } from './name-card/name-card.component';
 import { InputSelectorComponent } from './input-selector/input-selector.component';
+import { ExportScreenComponent } from './export-screen/export-screen.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     NameCardComponent,
-    InputSelectorComponent
+    InputSelectorComponent,
+    ExportScreenComponent
   ],
   imports: [
     BrowserModule,
