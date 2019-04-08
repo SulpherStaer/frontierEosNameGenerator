@@ -7,6 +7,8 @@ import { AppComponent } from './app.component';
 import { NameCardComponent } from './name-card/name-card.component';
 import { InputSelectorComponent } from './input-selector/input-selector.component';
 import { ExportScreenComponent } from './export-screen/export-screen.component';
+import { ServiceWorkerModule } from '@angular/service-worker';
+import { environment } from '../environments/environment';
 
 @NgModule({
   declarations: [
@@ -19,7 +21,8 @@ import { ExportScreenComponent } from './export-screen/export-screen.component';
     BrowserModule,
     HttpClientModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
   bootstrap: [AppComponent]
