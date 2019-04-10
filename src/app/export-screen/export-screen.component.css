@@ -1,0 +1,20 @@
+#masterOverlay {
+  width:99%;
+  height:99%;
+  position: fixed;
+  left: 0px;
+  top: 0px;
+  display: hidden;
+  grid-template-columns: auto 800px auto;
+  grid-template-rows: auto 500px auto;
+  visibility: hidden;
+}
+#exportContainer {
+  grid-column: 2;
+  grid-row:2;
+  padding: 2rem 1.5rem;
+  background: #424959;
+  margin: 0.5rem 0 1.5rem 0;
+  border-radius: 5px;
+  box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+}
