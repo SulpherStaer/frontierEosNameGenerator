@@ -4,17 +4,35 @@
   position: fixed;
   left: 0px;
   top: 0px;
-  display: hidden;
-  grid-template-columns: auto 800px auto;
-  grid-template-rows: auto 500px auto;
-  visibility: hidden;
+  display: grid;
+  grid-template-columns: 25% 50% 25%;
+  grid-template-rows: 25% 50% 25%;
+  font-family: "Roboto-regular",sans-serif,arial;
+  color: #ccd1dd;
+  visibility:hidden;
 }
 #exportContainer {
   grid-column: 2;
   grid-row:2;
-  padding: 2rem 1.5rem;
+  min-width:500px;
+  max-width:800px;
+  min-height:300px;
+  max-height:500px;
   background: #424959;
-  margin: 0.5rem 0 1.5rem 0;
   border-radius: 5px;
   box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
+  display: grid;
+  grid-template-columns: repeat(20, 5% [col-start]);
+  grid-template-rows: repeat(20, 5% [col-start]);
+}
+#exportTitle {
+  grid-column-start:1;
+  grid-column-end:20;
+  grid-row-start:1;
+}
+h2 {
+  font-family: "Roboto-Light","Roboto-Thin",sans-serif,arial;
+  color: #ccd1dd;
+  margin-top: -0.1rem;
+  padding: 0.3rem;
 }
