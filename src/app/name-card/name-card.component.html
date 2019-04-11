@@ -2,7 +2,7 @@
   <section *ngFor="let generatedName of nameData$" class="card" [style.background-image]="'url('+generatedName.factionImageBottom+')'">
     <form>
       <header [style.background-image]="'url('+generatedName.factionImageTop+')'"><p>{{generatedName.factionName}}</p></header>
-      <!-- <input id="exportToCustoms" type="submit" value="💾 Export"> -->
+      <!-- <input id="exportToCustoms" type="submit" class="fa" value="Export &#xf1e0;"> -->
       <input id="name" type="text" value="{{generatedName.fullName}}">
     </form>
   </section>

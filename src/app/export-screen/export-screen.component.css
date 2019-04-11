@@ -7,7 +7,6 @@
   display: grid;
   grid-template-columns: 25% 50% 25%;
   grid-template-rows: 25% 50% 25%;
-  font-family: "Roboto-regular",sans-serif,arial;
   color: #ccd1dd;
   visibility:hidden;
 }
@@ -27,12 +26,46 @@
 }
 #exportTitle {
   grid-column-start:1;
-  grid-column-end:20;
+  grid-column-end:21;
   grid-row-start:1;
-}
-h2 {
-  font-family: "Roboto-Light","Roboto-Thin",sans-serif,arial;
-  color: #ccd1dd;
+  font-weight:300;
   margin-top: -0.1rem;
   padding: 0.3rem;
+  text-decoration:underline;
+}
+input[type="text"] {
+  width:auto;
+  background: none;
+  border: 0;
+  border-bottom: 2px solid #838795;
+  color: #ccd1dd;
+  padding: 0.3rem 0.5rem;
+  transition: 0.3s;
+  white-space: nowrap; 
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+#rfidSpan {
+  grid-column-start:2;
+  grid-column-end:20;
+  grid-row-start:3;
+  grid-row-end:3;
+}
+#nameSpan {
+  grid-column-start:2;
+  grid-column-end:20;
+  grid-row-start:5;
+  grid-row-end:5;
+}
+#rankSpan {
+  grid-column-start:2;
+  grid-column-end:20;
+  grid-row-start:7;
+  grid-row-end:7;
+}
+#iccidSpan {
+  grid-column-start:2;
+  grid-column-end:20;
+  grid-row-start:9;
+  grid-row-end:9;
 }

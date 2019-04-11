@@ -4,7 +4,7 @@
 }
 .card {
   background-color: #2c3445;
-  font-family: "Roboto-regular",sans-serif,arial;
+  font-weight:normal;
   color: #ccd1dd;
   width: 18rem;
   box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
@@ -25,7 +25,6 @@ header p {
   color: #FFF;
   text-indent: 1.5rem;
   text-shadow: 1px 1px 4px rgba(38,46,62,0.6);
-  font-family: "Roboto-Light","Roboto-Thin",sans-serif,arial;
   font-size: 1.1rem;
   font-weight: bold;
   margin:0;
@@ -61,7 +60,7 @@ input[type="submit"] {
   background: rgba(44,52,69,0.8);
   border: 1px solid #4975e3;
   border-radius: 5px;
-  padding: 0.5rem 1rem 0.5rem 0.75rem;
+  padding: 0.5rem;
   transition: 0.4s;
   margin-bottom: -1rem;
   text-shadow: 1px 1px 4px rgba(38,46,62,0.6);
